@@ -1,16 +1,14 @@
 package com.shmup.hiscores.scores.adapter;
 
 import android.content.Context;
-import android.database.DataSetObserver;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ListAdapter;
-import android.widget.TextView;
 
 import com.shmup.hiscores.R;
 import com.shmup.hiscores.scores.model.TimelineItem;
+import com.shmup.hiscores.scores.view.TimelineItemView;
 
 import java.util.List;
 
@@ -41,14 +39,14 @@ public class TimelineAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = LayoutInflater.from(context).inflate(R.layout.itemview_timeline, parent, false);
-        TextView playerTextView = (TextView) view.findViewById(R.id.playerTextView);
-        TextView scoreTextView = (TextView) view.findViewById(R.id.scoreTextView);
-
-        TimelineItem item = getItem(position);
-        playerTextView.setText(item.getPlayer().getName());
-        scoreTextView.setText(item.getScore().getValue().toString());
-
-        return view;
+        TimelineItemView timelineItemView;
+        if (convertView == null) {
+            timelineItemView = (TimelineItemView) LayoutInflater.from(context).inflate(R.layout.itemview_timeline, parent, false);
+        } else {
+            timelineItemView = (TimelineItemView) convertView;
+        }
+        timelineItemView.bindView(getItem(position));
+        return timelineItemView;
     }
+
 }
