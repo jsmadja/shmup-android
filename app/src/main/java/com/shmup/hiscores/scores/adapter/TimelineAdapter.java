@@ -10,16 +10,24 @@ import com.shmup.hiscores.R;
 import com.shmup.hiscores.scores.model.TimelineItem;
 import com.shmup.hiscores.scores.view.TimelineItemView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TimelineAdapter extends BaseAdapter {
 
     private final Context context;
-    private List<TimelineItem> items;
+    private List<TimelineItem> items = new ArrayList<>();
+    private LayoutInflater layoutInflater;
 
-    public TimelineAdapter(List<TimelineItem> items, Context context) {
-        this.items = items;
+    public TimelineAdapter(Context context) {
         this.context = context;
+        this.layoutInflater = LayoutInflater.from(context);
+    }
+
+    public void setItems(List<TimelineItem> items) {
+        this.items.clear();
+        this.items.addAll(items);
+        notifyDataSetChanged();
     }
 
     @Override
@@ -41,7 +49,7 @@ public class TimelineAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         TimelineItemView timelineItemView;
         if (convertView == null) {
-            timelineItemView = (TimelineItemView) LayoutInflater.from(context).inflate(R.layout.itemview_timeline, parent, false);
+            timelineItemView = (TimelineItemView) this.layoutInflater.inflate(R.layout.itemview_timeline, parent, false);
         } else {
             timelineItemView = (TimelineItemView) convertView;
         }

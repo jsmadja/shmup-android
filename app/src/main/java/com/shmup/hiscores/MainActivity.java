@@ -1,18 +1,20 @@
 package com.shmup.hiscores;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ListView;
 
 import com.shmup.hiscores.scores.adapter.TimelineAdapter;
-import com.shmup.hiscores.scores.model.Player;
-import com.shmup.hiscores.scores.model.Score;
 import com.shmup.hiscores.scores.model.TimelineItem;
 
-import java.util.ArrayList;
+import java.util.List;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+import timber.log.Timber;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,11 +24,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ListView timelineListView = (ListView) findViewById(R.id.timelineListView);
-        timelineListView.setAdapter(new TimelineAdapter(new ArrayList<TimelineItem>() {{
-            add(new TimelineItem(new Score(13L), new Player("juju")));
-            add(new TimelineItem(new Score(14L), new Player("blacroix")));
-            add(new TimelineItem(new Score(15L), new Player("tguerin")));
-        }}, this));
+        final TimelineAdapter adapter = new TimelineAdapter(this);
+        timelineListView.setAdapter(adapter);
+        HiscoresApplication.shmupAPI.getTimeline(new Callback<List<TimelineItem>>() {
+            @Override
+            public void success(List<TimelineItem> timelineItems, Response response) {
+                adapter.setItems(timelineItems);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Timber.e(error, "Unable to fetch timeline ");
+            }
+        });
     }
 
     @Override
