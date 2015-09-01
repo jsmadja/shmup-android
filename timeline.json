@@ -1,6 +1,5 @@
 [
-{
-	'author': {'name':'jsmadja','id':5},
+{'author': {'name':'jsmadja','id':5},
 	'game': {
 		title: 'Last Resort', 'id':124
 	},
