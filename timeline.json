@@ -1,6 +1,6 @@
 [
     {
-        "author": {
+        "player": {
             "name": "jsmadja",
             "id": 5
         },
@@ -28,7 +28,7 @@
         }
     },
     {
-        "author": {
+        "player": {
             "name": "blacroix",
             "id": 5
         },
