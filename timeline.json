@@ -1,0 +1,51 @@
+[
+{
+	'author': {'name':'jsmadja','id':5},
+	'game': {
+		title: 'Last Resort', 'id':124
+	},
+	'score': {
+		'id':765,
+		'value': 12345654,
+		'1cc': true,
+		'rank':67
+	},
+	'platform': {
+	  'id':543,
+	  'title':'NG'
+	},
+	'difficulty': {
+	  'id':87,
+	  'title':'Easy'
+	},
+	'mode': {
+	  'id':87,
+	  'title:'ARCADE'
+	}
+},
+{
+	'author': {'name':'jsmadja','id':5},
+	'game': {
+		title: 'Last Resort', 'id':124
+	},
+	'score': {
+		'id':765,
+		'value': 8657,
+		'1cc': false,
+		'rank':34
+	},
+	'platform': {
+	  'id':543,
+	  'title':'NG'
+	},
+	'difficulty': {
+	  'id':87,
+	  'title':'Easy'
+	},
+	'mode': {
+	  'id':87,
+	  'title:'ARCADE'
+	}
+}
+
+]
