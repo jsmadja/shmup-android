@@ -3,6 +3,7 @@ package com.shmup.hiscores;
 import android.app.Application;
 
 import com.shmup.hiscores.api.ShmupAPI;
+import com.shmup.hiscores.converter.JacksonConverter;
 
 import retrofit.RestAdapter;
 import retrofit.client.OkClient;
@@ -17,7 +18,10 @@ public class HiscoresApplication extends Application {
         super.onCreate();
 
         RestAdapter.Builder builder = new RestAdapter.Builder().setClient(new OkClient()).setConverter(new JacksonConverter());
+
         shmupAPI = builder.setEndpoint(BuildConfig.BASE_URL).build().create(ShmupAPI.class);
+
+        //http://square.github.io/picasso/
 
         if (BuildConfig.DEBUG) {
             Timber.plant(new Timber.DebugTree());

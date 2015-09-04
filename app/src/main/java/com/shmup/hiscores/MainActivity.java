@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ListView timelineListView = (ListView) findViewById(R.id.timelineListView);
+        timelineListView.setDividerHeight(20);
         final TimelineAdapter adapter = new TimelineAdapter(this);
         timelineListView.setAdapter(adapter);
         HiscoresApplication.shmupAPI.getTimeline(new Callback<List<TimelineItem>>() {

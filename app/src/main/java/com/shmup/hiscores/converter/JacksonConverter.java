@@ -1,4 +1,4 @@
-package com.shmup.hiscores;
+package com.shmup.hiscores.converter;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;

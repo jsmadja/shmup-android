@@ -15,12 +15,10 @@ import java.util.List;
 
 public class TimelineAdapter extends BaseAdapter {
 
-    private final Context context;
     private List<TimelineItem> items = new ArrayList<>();
     private LayoutInflater layoutInflater;
 
     public TimelineAdapter(Context context) {
-        this.context = context;
         this.layoutInflater = LayoutInflater.from(context);
     }
 
