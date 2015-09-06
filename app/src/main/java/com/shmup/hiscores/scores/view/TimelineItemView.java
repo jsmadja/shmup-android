@@ -56,7 +56,7 @@ public class TimelineItemView extends LinearLayout {
 
     public void bindView(TimelineItem timelineItem) {
         playerTextView.setText(timelineItem.getPlayer().getName());
-        scoreTextView.setText(format("%s %d", timelineItem.getValue(), R.string.scoreSuffix));
+        scoreTextView.setText(format("%s %s", timelineItem.getValue(), getResources().getString(R.string.scoreSuffix)));
         dateTextView.setText(timelineItem.getDate());
         platformTextView.setText(timelineItem.getPlatform().getName());
         gameTextView.setText(timelineItem.getGame().getTitle());
