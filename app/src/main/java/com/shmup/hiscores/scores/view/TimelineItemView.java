@@ -1,19 +1,14 @@
 package com.shmup.hiscores.scores.view;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.shmup.hiscores.R;
 import com.shmup.hiscores.scores.model.TimelineItem;
-
-import java.io.InputStream;
+import com.squareup.picasso.Picasso;
 
 public class TimelineItemView extends LinearLayout {
 
@@ -57,7 +52,7 @@ public class TimelineItemView extends LinearLayout {
 
     public void bindView(TimelineItem timelineItem) {
         playerTextView.setText(timelineItem.getPlayer().getName());
-        scoreTextView.setText(timelineItem.getValue()+" pts");
+        scoreTextView.setText(timelineItem.getValue() + " pts");
         dateTextView.setText(timelineItem.getDate());
         platformTextView.setText(timelineItem.getPlatform().getName());
         gameTextView.setText(timelineItem.getGame().getTitle());
@@ -80,35 +75,9 @@ public class TimelineItemView extends LinearLayout {
         } else {
             oneccTextView.setVisibility(GONE);
         }
-
-        photoTextView.setVisibility(timelineItem.getPhoto() == null ? GONE : VISIBLE);
-        replayTextView.setVisibility(timelineItem.getReplay() == null ? GONE : VISIBLE);
-
-        new DownloadImageTask(coverImageView).execute(timelineItem.getCover());
+        photoTextView.setVisibility(timelineItem.hasPhoto() ? VISIBLE : GONE);
+        replayTextView.setVisibility(timelineItem.hasReplay() ? VISIBLE : GONE);
+        Picasso.with(getContext()).load(timelineItem.getCover()).into(coverImageView);
     }
 
-    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-        ImageView bmImage;
-
-        public DownloadImageTask(ImageView bmImage) {
-            this.bmImage = bmImage;
-        }
-
-        protected Bitmap doInBackground(String... urls) {
-            String urldisplay = urls[0];
-            Bitmap mIcon11 = null;
-            try {
-                InputStream in = new java.net.URL(urldisplay).openStream();
-                mIcon11 = BitmapFactory.decodeStream(in);
-            } catch (Exception e) {
-                Log.e("Error", e.getMessage());
-                e.printStackTrace();
-            }
-            return mIcon11;
-        }
-
-        protected void onPostExecute(Bitmap result) {
-            bmImage.setImageBitmap(result);
-        }
-    }
 }

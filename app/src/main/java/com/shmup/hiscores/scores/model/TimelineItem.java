@@ -78,4 +78,12 @@ public class TimelineItem {
         }
         return cover;
     }
+
+    public boolean hasPhoto() {
+        return photo != null && !photo.trim().isEmpty();
+    }
+
+    public boolean hasReplay() {
+        return replay != null && !replay.trim().isEmpty();
+    }
 }
