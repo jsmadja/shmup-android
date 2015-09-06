@@ -21,8 +21,6 @@ public class HiscoresApplication extends Application {
 
         shmupAPI = builder.setEndpoint(BuildConfig.BASE_URL).build().create(ShmupAPI.class);
 
-        //http://square.github.io/picasso/
-
         if (BuildConfig.DEBUG) {
             Timber.plant(new Timber.DebugTree());
         }

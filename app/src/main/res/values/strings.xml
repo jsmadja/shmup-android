@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Hiscores</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="action_new_score">Nouveau score</string>
+
     <string name="cover">Cover</string>
     <string name="oneCC">1CC</string>
     <string name="replay">Replay</string>
@@ -15,4 +16,6 @@
     <string name="scorePlaceHolder">123456 pts</string>
     <string name="stagePlaceHolder">Stage 1</string>
     <string name="rankPlaceHolder">1st</string>
+
+    <string name="scoreSuffix">pts</string>
 </resources>

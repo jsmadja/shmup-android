@@ -10,6 +10,8 @@ import com.shmup.hiscores.R;
 import com.shmup.hiscores.scores.model.TimelineItem;
 import com.squareup.picasso.Picasso;
 
+import static java.lang.String.format;
+
 public class TimelineItemView extends LinearLayout {
 
     private TextView playerTextView;
@@ -54,7 +56,7 @@ public class TimelineItemView extends LinearLayout {
 
     public void bindView(TimelineItem timelineItem) {
         playerTextView.setText(timelineItem.getPlayer().getName());
-        scoreTextView.setText(timelineItem.getValue() + " pts");
+        scoreTextView.setText(format("%s %d", timelineItem.getValue(), R.string.scoreSuffix));
         dateTextView.setText(timelineItem.getDate());
         platformTextView.setText(timelineItem.getPlatform().getName());
         gameTextView.setText(timelineItem.getGame().getTitle());
@@ -73,11 +75,11 @@ public class TimelineItemView extends LinearLayout {
         }
         if (timelineItem.isOnecc()) {
             oneccTextView.setVisibility(VISIBLE);
-            oneccTextView.setText("1CC");
+            oneccTextView.setText(R.string.oneCC);
         } else {
             oneccTextView.setVisibility(GONE);
         }
-        if(timelineItem.hasStage()) {
+        if (timelineItem.hasStage()) {
             stageTextView.setVisibility(VISIBLE);
             stageTextView.setText(timelineItem.getStageName());
         } else {
