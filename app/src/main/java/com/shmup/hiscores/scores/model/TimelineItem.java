@@ -17,6 +17,7 @@ public class TimelineItem {
     private String photo;
     private String replay;
     private Platform platform;
+    private String rank;
 
     public String getValue() {
         return value;
@@ -64,5 +65,17 @@ public class TimelineItem {
 
     public Platform getPlatform() {
         return platform;
+    }
+
+    public String getRank() {
+        return rank;
+    }
+
+    public String getCover() {
+        String cover = game.getCover();
+        if (cover.startsWith("/")) {
+            cover = "http://hiscores.shmup.com" + cover;
+        }
+        return cover;
     }
 }

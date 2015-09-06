@@ -5,16 +5,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Score {
 
-    private Long value;
+    private long value;
 
-    public Score() {
-    }
-
-    public Score(Long value) {
-        this.value = value;
-    }
-
-    public Long getValue() {
+    public long getValue() {
         return value;
     }
 }

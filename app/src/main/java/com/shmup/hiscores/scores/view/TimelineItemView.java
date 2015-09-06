@@ -26,6 +26,9 @@ public class TimelineItemView extends LinearLayout {
     private TextView modeTextView;
     private TextView oneccTextView;
     private TextView gameTextView;
+    private TextView photoTextView;
+    private TextView replayTextView;
+    private TextView rankTextView;
 
     public TimelineItemView(Context context) {
         this(context, null);
@@ -47,6 +50,9 @@ public class TimelineItemView extends LinearLayout {
         modeTextView = (TextView) findViewById(R.id.modeTextView);
         oneccTextView = (TextView) findViewById(R.id.oneccTextView);
         gameTextView = (TextView) findViewById(R.id.gameTextView);
+        photoTextView = (TextView) findViewById(R.id.photoTextView);
+        replayTextView = (TextView) findViewById(R.id.replayTextView);
+        rankTextView = (TextView) findViewById(R.id.rankTextView);
     }
 
     public void bindView(TimelineItem timelineItem) {
@@ -55,6 +61,7 @@ public class TimelineItemView extends LinearLayout {
         dateTextView.setText(timelineItem.getDate());
         platformTextView.setText(timelineItem.getPlatform().getName());
         gameTextView.setText(timelineItem.getGame().getTitle());
+        rankTextView.setText(timelineItem.getRank());
         if (timelineItem.getDifficulty() == null) {
             difficultyTextView.setVisibility(GONE);
         } else {
@@ -73,7 +80,11 @@ public class TimelineItemView extends LinearLayout {
         } else {
             oneccTextView.setVisibility(GONE);
         }
-        new DownloadImageTask(coverImageView).execute(timelineItem.getGame().getCover());
+
+        photoTextView.setVisibility(timelineItem.getPhoto() == null ? GONE : VISIBLE);
+        replayTextView.setVisibility(timelineItem.getReplay() == null ? GONE : VISIBLE);
+
+        new DownloadImageTask(coverImageView).execute(timelineItem.getCover());
     }
 
     private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {

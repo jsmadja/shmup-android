@@ -2,11 +2,11 @@ package com.shmup.hiscores.scores.model;
 
 public class Game {
 
-    private Long id;
+    private long id;
     private String title;
     private String cover;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
