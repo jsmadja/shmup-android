@@ -3,4 +3,16 @@
 
     <string name="action_settings">Settings</string>
     <string name="cover">Cover</string>
+    <string name="oneCC">1CC</string>
+    <string name="replay">Replay</string>
+    <string name="photo">Photo</string>
+    <string name="platformPlaceHolder">SUPER NINTENDO</string>
+    <string name="modePlaceHolder">Arcade</string>
+    <string name="difficultyPlaceHolder">Hard</string>
+    <string name="datePlaceHolder">Il y a 2 jours</string>
+    <string name="playerPlaceHolder">John Doe</string>
+    <string name="gamePlaceHolder">Last Resort</string>
+    <string name="scorePlaceHolder">123456 pts</string>
+    <string name="stagePlaceHolder">Stage 1</string>
+    <string name="rankPlaceHolder">1st</string>
 </resources>

@@ -24,6 +24,7 @@ public class TimelineItemView extends LinearLayout {
     private TextView photoTextView;
     private TextView replayTextView;
     private TextView rankTextView;
+    private TextView stageTextView;
 
     public TimelineItemView(Context context) {
         this(context, null);
@@ -48,6 +49,7 @@ public class TimelineItemView extends LinearLayout {
         photoTextView = (TextView) findViewById(R.id.photoTextView);
         replayTextView = (TextView) findViewById(R.id.replayTextView);
         rankTextView = (TextView) findViewById(R.id.rankTextView);
+        stageTextView = (TextView) findViewById(R.id.stageTextView);
     }
 
     public void bindView(TimelineItem timelineItem) {
@@ -74,6 +76,12 @@ public class TimelineItemView extends LinearLayout {
             oneccTextView.setText("1CC");
         } else {
             oneccTextView.setVisibility(GONE);
+        }
+        if(timelineItem.hasStage()) {
+            stageTextView.setVisibility(VISIBLE);
+            stageTextView.setText(timelineItem.getStageName());
+        } else {
+            stageTextView.setVisibility(GONE);
         }
         photoTextView.setVisibility(timelineItem.hasPhoto() ? VISIBLE : GONE);
         replayTextView.setVisibility(timelineItem.hasReplay() ? VISIBLE : GONE);

@@ -18,13 +18,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            tools:text="Il y a 2 jours" />
+            tools:text="@string/datePlaceHolder" />
 
         <TextView
             android:id="@+id/playerTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="John Doe" />
+            tools:text="@string/playerPlaceHolder" />
 
     </LinearLayout>
 
@@ -45,6 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -57,14 +58,19 @@
                     android:id="@+id/gameTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Last Resort" />
+                    tools:text="@string/gamePlaceHolder" />
 
                 <TextView
                     android:id="@+id/scoreTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    tools:text="123456 pts" />
+                    tools:text="@string/scorePlaceHolder" />
+
+                <TextView
+                    android:id="@+id/stageTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="@string/stagePlaceHolder" />
 
             </LinearLayout>
 
@@ -74,86 +80,63 @@
                 android:layout_height="wrap_content"
                 android:textSize="50sp"
                 android:textStyle="bold"
-                tools:text="1st" />
+                tools:text="@string/rankPlaceHolder" />
 
         </LinearLayout>
 
     </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <org.apmem.tools.layouts.FlowLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="5dp">
 
         <TextView
             android:id="@+id/modeTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/Button"
+            android:layout_marginBottom="5dp"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
-            android:background="#7f8c8d"
-            android:padding="5dp"
-            android:textColor="#FFFFFF"
-            tools:text="Arcade" />
+            android:background="@color/mode"
+            tools:text="@string/modePlaceHolder" />
 
         <TextView
             android:id="@+id/difficultyTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/Button"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
-            android:background="#f1c40f"
-            android:padding="5dp"
-            android:textColor="#FFFFFF"
-            android:layout_toEndOf="@id/modeTextView"
-            tools:text="Hard" />
+            android:background="@color/difficulty"
+            tools:text="@string/difficultyPlaceHolder" />
 
         <TextView
             android:id="@+id/platformTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/Button"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
-            android:background="#27ae60"
-            android:padding="5dp"
-            android:textColor="#FFFFFF"
-            tools:text="SUPER NINTENDO"
-            android:layout_toEndOf="@id/difficultyTextView"
-            />
+            android:background="@color/platform"
+            tools:text="@string/platformPlaceHolder" />
 
         <TextView
             android:id="@+id/photoTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/Button"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
-            android:background="#3498db"
-            android:padding="5dp"
-            android:text="Photo"
-            android:layout_toEndOf="@id/platformTextView"
-            android:textColor="#FFFFFF" />
+            android:background="@color/photo"
+            android:text="@string/photo" />
 
         <TextView
             android:id="@+id/replayTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/Button"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
-            android:background="#3498db"
-            android:padding="5dp"
-            android:text="Replay"
-            android:layout_toEndOf="@id/photoTextView"
-            android:textColor="#FFFFFF" />
+            android:background="@color/replay"
+            android:text="@string/replay" />
 
         <TextView
             android:id="@+id/oneccTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#c0392b"
-            android:padding="5dp"
-            android:textColor="#FFFFFF"
-            android:layout_toEndOf="@id/replayTextView"
-            tools:text="1CC" />
+            style="@style/Button"
+            android:background="@color/oneCC"
+            tools:text="@string/oneCC" />
 
-    </RelativeLayout>
+    </org.apmem.tools.layouts.FlowLayout>
 </com.shmup.hiscores.scores.view.TimelineItemView>

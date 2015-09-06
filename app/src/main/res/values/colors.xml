@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="platform">#27ae60</color>
+    <color name="photo">#3498db</color>
+    <color name="replay">#3498db</color>
+    <color name="oneCC">#c0392b</color>
+    <color name="difficulty">#f1c40f</color>
+    <color name="mode">#7f8c8d</color>
+</resources>

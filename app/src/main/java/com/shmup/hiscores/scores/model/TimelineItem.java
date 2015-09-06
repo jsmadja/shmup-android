@@ -86,4 +86,12 @@ public class TimelineItem {
     public boolean hasReplay() {
         return replay != null && !replay.trim().isEmpty();
     }
+
+    public boolean hasStage() {
+        return stage != null && !stage.getName().trim().isEmpty();
+    }
+
+    public String getStageName() {
+        return stage.getName();
+    }
 }
