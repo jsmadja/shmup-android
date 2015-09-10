@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="20dp"
-    android:background="#FFFFFF"
+    android:background="@android:color/white"
     android:orientation="vertical"
     android:padding="10dp">
 
@@ -87,48 +87,48 @@
     </LinearLayout>
 
     <org.apmem.tools.layouts.FlowLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp">
 
         <TextView
             android:id="@+id/modeTextView"
             style="@style/Button"
-            android:layout_marginBottom="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginBottom="@dimen/buttonMargin"
+            android:layout_marginEnd="@dimen/buttonMargin"
+            android:layout_marginRight="@dimen/buttonMargin"
             android:background="@color/mode"
             tools:text="@string/modePlaceHolder" />
 
         <TextView
             android:id="@+id/difficultyTextView"
             style="@style/Button"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginEnd="@dimen/buttonMargin"
+            android:layout_marginRight="@dimen/buttonMargin"
             android:background="@color/difficulty"
             tools:text="@string/difficultyPlaceHolder" />
 
         <TextView
             android:id="@+id/platformTextView"
             style="@style/Button"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginEnd="@dimen/buttonMargin"
+            android:layout_marginRight="@dimen/buttonMargin"
             android:background="@color/platform"
             tools:text="@string/platformPlaceHolder" />
 
         <TextView
             android:id="@+id/photoTextView"
             style="@style/Button"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginEnd="@dimen/buttonMargin"
+            android:layout_marginRight="@dimen/buttonMargin"
             android:background="@color/photo"
             android:text="@string/photo" />
 
         <TextView
             android:id="@+id/replayTextView"
             style="@style/Button"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginEnd="@dimen/buttonMargin"
+            android:layout_marginRight="@dimen/buttonMargin"
             android:background="@color/replay"
             android:text="@string/replay" />
 

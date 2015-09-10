@@ -10,9 +10,9 @@ import retrofit.http.GET;
 
 public interface ShmupAPI {
 
-    @GET("/timeline")
+    @GET("/api/timeline")
     void getTimeline(Callback<List<TimelineItem>> callback);
 
-    @GET("/games")
+    @GET("/api/games")
     void getGameList(Callback<List<Game>> callback);
 }

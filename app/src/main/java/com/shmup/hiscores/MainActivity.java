@@ -1,5 +1,6 @@
 package com.shmup.hiscores;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -24,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ListView timelineListView = (ListView) findViewById(R.id.timelineListView);
-        timelineListView.setDividerHeight(20);
         final TimelineAdapter adapter = new TimelineAdapter(this);
         timelineListView.setAdapter(adapter);
         HiscoresApplication.shmupAPI.getTimeline(new Callback<List<TimelineItem>>() {
@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_new_score) {
+            startActivity(new Intent(this, CreateScoreActivity.class));
             return true;
         }
 

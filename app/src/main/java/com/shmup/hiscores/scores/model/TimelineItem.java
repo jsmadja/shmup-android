@@ -1,9 +1,13 @@
 package com.shmup.hiscores.scores.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.shmup.hiscores.BuildConfig;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class TimelineItem {
+public class TimelineItem implements Parcelable {
 
     private String value;
     private Player player;
@@ -74,7 +78,7 @@ public class TimelineItem {
     public String getCover() {
         String cover = game.getCover();
         if (cover.startsWith("/")) {
-            cover = "http://hiscores.shmup.com" + cover;
+            cover = BuildConfig.BASE_URL + "/" + cover;
         }
         return cover;
     }
@@ -94,4 +98,60 @@ public class TimelineItem {
     public String getStageName() {
         return stage.getName();
     }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.value);
+        dest.writeParcelable(this.player, flags);
+        dest.writeParcelable(this.game, flags);
+        dest.writeParcelable(this.stage, flags);
+        dest.writeParcelable(this.ship, flags);
+        dest.writeParcelable(this.difficulty, flags);
+        dest.writeParcelable(this.mode, flags);
+        dest.writeString(this.date);
+        dest.writeByte(onecc ? (byte) 1 : (byte) 0);
+        dest.writeString(this.photo);
+        dest.writeString(this.replay);
+        dest.writeParcelable(this.platform, flags);
+        dest.writeString(this.rank);
+    }
+
+    public TimelineItem() {
+    }
+
+    protected TimelineItem(Parcel in) {
+        this.value = in.readString();
+        this.player = in.readParcelable(Player.class.getClassLoader());
+        this.game = in.readParcelable(Game.class.getClassLoader());
+        this.stage = in.readParcelable(Stage.class.getClassLoader());
+        this.ship = in.readParcelable(Ship.class.getClassLoader());
+        this.difficulty = in.readParcelable(Difficulty.class.getClassLoader());
+        this.mode = in.readParcelable(Mode.class.getClassLoader());
+        this.date = in.readString();
+        this.onecc = in.readByte() != 0;
+        this.photo = in.readString();
+        this.replay = in.readString();
+        this.platform = in.readParcelable(Platform.class.getClassLoader());
+        this.rank = in.readString();
+    }
+
+    public static final Creator<TimelineItem> CREATOR = new Creator<TimelineItem>() {
+        public TimelineItem createFromParcel(Parcel source) {
+            return new TimelineItem(source);
+        }
+
+        public TimelineItem[] newArray(int size) {
+            return new TimelineItem[size];
+        }
+    };
 }

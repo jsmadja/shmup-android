@@ -12,6 +12,9 @@ import com.squareup.picasso.Picasso;
 
 import static java.lang.String.format;
 
+/**
+ * Mettre ButterKnife
+ */
 public class TimelineItemView extends LinearLayout {
 
     private TextView playerTextView;
