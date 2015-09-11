@@ -1,4 +1,4 @@
-package com.shmup.hiscores.scores.view;
+package com.shmup.hiscores.games.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -6,7 +6,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.shmup.hiscores.R;
-import com.shmup.hiscores.scores.model.Option;
+import com.shmup.hiscores.games.model.Option;
 
 /**
  * Mettre ButterKnife

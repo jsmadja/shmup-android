@@ -1,4 +1,4 @@
-package com.shmup.hiscores.scores.view;
+package com.shmup.hiscores.games.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -6,12 +6,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.shmup.hiscores.R;
-import com.shmup.hiscores.scores.model.Platform;
+import com.shmup.hiscores.games.model.Option;
 
 /**
  * Mettre ButterKnife
  */
-public class PlatformItemView extends LinearLayout {
+public class PlatformItemView extends LinearLayout implements BindableItemView {
 
     private TextView platformTextView;
 
@@ -29,8 +29,8 @@ public class PlatformItemView extends LinearLayout {
         platformTextView = (TextView) findViewById(R.id.platformTextView);
     }
 
-    public void bindView(Platform platform) {
-        platformTextView.setText(platform.getName());
+    @Override
+    public void bindView(Option option) {
+        platformTextView.setText(option.getName());
     }
-
 }

@@ -16,11 +16,21 @@ public class NextItemFragmentFactory {
         if (from instanceof SelectDifficultyFragment) {
             return nextOfSelectDifficulty(from.getItem());
         }
-        return nextOfSelectShip(from.getItem());
+        if (from instanceof SelectShipFragment) {
+            nextOfSelectShip(from.getItem());
+        }
+        return nextOfSelectStage(from.getItem());
+    }
+
+    private static Fragment nextOfSelectStage(ScoreCardItem item) {
+        return ItemFragment.newInstance(item, EnterScoreFragment.class);
     }
 
     private static Fragment nextOfSelectShip(ScoreCardItem item) {
-        return ItemFragment.newInstance(item, EnterScoreFragment.class);
+        if (item.getGame().hasStages()) {
+            return ItemFragment.newInstance(item, SelectStageFragment.class);
+        }
+        return nextOfSelectStage(item);
     }
 
     private static Fragment nextOfSelectDifficulty(ScoreCardItem item) {

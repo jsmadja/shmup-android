@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.shmup.hiscores.games.view.StageItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/OptionList">
+
+    <TextView
+        android:id="@+id/stageTextView"
+        style="@style/Option"
+        android:text="@string/stagePlaceHolder" />
+
+</com.shmup.hiscores.games.view.StageItemView>

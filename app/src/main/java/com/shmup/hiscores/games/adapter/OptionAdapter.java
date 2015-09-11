@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import com.shmup.hiscores.scores.model.Option;
-import com.shmup.hiscores.scores.view.BindableItemView;
+import com.shmup.hiscores.games.model.Option;
+import com.shmup.hiscores.games.view.BindableItemView;
 
 import java.util.ArrayList;
 import java.util.List;

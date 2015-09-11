@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.shmup.hiscores.scores.view.ShipItemView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<com.shmup.hiscores.games.view.ShipItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/OptionList">
 
     <TextView
         android:id="@+id/shipTextView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        style="@style/Option"
+        android:text="@string/shipPlaceHolder" />
 
-</com.shmup.hiscores.scores.view.ShipItemView>
+</com.shmup.hiscores.games.view.ShipItemView>

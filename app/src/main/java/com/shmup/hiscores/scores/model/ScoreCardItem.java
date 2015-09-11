@@ -5,7 +5,12 @@ import android.os.Parcelable;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.shmup.hiscores.BuildConfig;
+import com.shmup.hiscores.games.model.Difficulty;
 import com.shmup.hiscores.games.model.Game;
+import com.shmup.hiscores.games.model.Mode;
+import com.shmup.hiscores.games.model.Platform;
+import com.shmup.hiscores.games.model.Ship;
+import com.shmup.hiscores.games.model.Stage;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ScoreCardItem implements Parcelable {
@@ -170,5 +175,9 @@ public class ScoreCardItem implements Parcelable {
 
     public void setShip(Ship ship) {
         this.ship = ship;
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
     }
 }

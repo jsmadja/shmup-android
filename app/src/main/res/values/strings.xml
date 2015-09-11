@@ -16,6 +16,13 @@
     <string name="scorePlaceHolder">123456 pts</string>
     <string name="stagePlaceHolder">Stage 1</string>
     <string name="rankPlaceHolder">1st</string>
+    <string name="shipPlaceHolder">Vic Viper</string>
 
     <string name="scoreSuffix">pts</string>
+    <string name="title_select_game">Select Game</string>
+    <string name="title_select_difficulty">Select Difficulty</string>
+    <string name="title_select_mode">Select Mode</string>
+    <string name="title_select_platform">Select Platform</string>
+    <string name="title_select_ship">Select Ship</string>
+    <string name="title_select_stage">Select Stage</string>
 </resources>

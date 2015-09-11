@@ -7,7 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.shmup.hiscores.R;
 import com.shmup.hiscores.scores.model.ScoreCardItem;
+
+import static com.shmup.hiscores.ui.score.add.NextItemFragmentFactory.nextFragmentOf;
 
 public abstract class ItemFragment extends Fragment {
 
@@ -48,5 +51,15 @@ public abstract class ItemFragment extends Fragment {
     public ScoreCardItem getItem() {
         return item;
     }
+
+    protected void goToNextFragmentFrom(Class<? extends ItemFragment> selectShipFragmentClass) {
+        getActivity().
+                getSupportFragmentManager().
+                beginTransaction().
+                addToBackStack(selectShipFragmentClass.getSimpleName()).
+                replace(R.id.container_view, nextFragmentOf(this)).
+                commit();
+    }
+
 
 }

@@ -4,10 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.shmup.hiscores.scores.model.Difficulty;
-import com.shmup.hiscores.scores.model.Mode;
-import com.shmup.hiscores.scores.model.Platform;
-import com.shmup.hiscores.scores.model.Ship;
 
 import java.util.List;
 
@@ -21,6 +17,7 @@ public class Game implements Parcelable {
     private List<Mode> modes;
     private List<Difficulty> difficulties;
     private List<Ship> ships;
+    private List<Stage> stages;
 
     public Game() {
     }
@@ -70,6 +67,10 @@ public class Game implements Parcelable {
         return ships != null && !ships.isEmpty();
     }
 
+    public List<Stage> getStages() {
+        return stages;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -84,6 +85,7 @@ public class Game implements Parcelable {
         dest.writeTypedList(modes);
         dest.writeTypedList(difficulties);
         dest.writeTypedList(ships);
+        dest.writeTypedList(stages);
     }
 
     protected Game(Parcel in) {
@@ -94,6 +96,7 @@ public class Game implements Parcelable {
         this.modes = in.createTypedArrayList(Mode.CREATOR);
         this.difficulties = in.createTypedArrayList(Difficulty.CREATOR);
         this.ships = in.createTypedArrayList(Ship.CREATOR);
+        this.stages = in.createTypedArrayList(Stage.CREATOR);
     }
 
     public static final Creator<Game> CREATOR = new Creator<Game>() {
@@ -105,5 +108,9 @@ public class Game implements Parcelable {
             return new Game[size];
         }
     };
+
+    public boolean hasStages() {
+        return stages != null && !stages.isEmpty();
+    }
 }
 

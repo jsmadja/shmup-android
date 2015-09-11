@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.shmup.hiscores.R;
+import com.shmup.hiscores.activity.CreateScoreActivity;
 import com.shmup.hiscores.games.adapter.GameAdapter;
 import com.shmup.hiscores.games.model.Game;
 import com.shmup.hiscores.listener.RecyclerItemClickListener;
@@ -38,12 +39,14 @@ public class SelectGameFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ((CreateScoreActivity) getActivity()).setActionBarTitle(getResources().getString(R.string.title_select_game));
+
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(layoutManager);
         GameAdapter adapter = new GameAdapter();
         recyclerView.setAdapter(adapter);
-        recyclerView.addOnItemTouchListener(onClick(view, adapter));
+        recyclerView.addOnItemTouchListener(selectGame(view, adapter));
         shmupAPI.getGameList(fetchGames(adapter));
     }
 
@@ -63,17 +66,17 @@ public class SelectGameFragment extends Fragment {
     }
 
     @NonNull
-    private RecyclerItemClickListener onClick(View view, final GameAdapter adapter) {
+    private RecyclerItemClickListener selectGame(View view, final GameAdapter adapter) {
         return new RecyclerItemClickListener(view.getContext(), new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 item.setGame(adapter.getGameAt(position));
-                goToSelectPlatform();
+                goToNextFragment();
             }
         });
     }
 
-    private void goToSelectPlatform() {
+    private void goToNextFragment() {
         getActivity().getSupportFragmentManager().
                 beginTransaction().
                 addToBackStack(SelectGameFragment.class.getSimpleName()).
