@@ -3,19 +3,14 @@ package com.shmup.hiscores.scores.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Difficulty implements Parcelable {
+public class Difficulty extends Option implements Parcelable {
 
-    private long id;
-    private String name;
-
-    public long getId() {
-        return id;
+    public Difficulty() {
     }
 
-    public String getName() {
-        return name;
+    public Difficulty(Parcel in) {
+        super(in);
     }
-
 
     @Override
     public int describeContents() {
@@ -24,16 +19,8 @@ public class Difficulty implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeLong(this.id);
-        dest.writeString(this.name);
-    }
-
-    public Difficulty() {
-    }
-
-    protected Difficulty(Parcel in) {
-        this.id = in.readLong();
-        this.name = in.readString();
+        dest.writeLong(this.getId());
+        dest.writeString(this.getName());
     }
 
     public static final Creator<Difficulty> CREATOR = new Creator<Difficulty>() {

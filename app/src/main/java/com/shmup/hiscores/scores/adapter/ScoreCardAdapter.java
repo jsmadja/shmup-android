@@ -7,22 +7,22 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.shmup.hiscores.R;
-import com.shmup.hiscores.scores.model.TimelineItem;
-import com.shmup.hiscores.scores.view.TimelineItemView;
+import com.shmup.hiscores.scores.model.ScoreCardItem;
+import com.shmup.hiscores.scores.view.ScoreCardItemView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TimelineAdapter extends BaseAdapter {
+public class ScoreCardAdapter extends BaseAdapter {
 
-    private List<TimelineItem> items = new ArrayList<>();
+    private List<ScoreCardItem> items = new ArrayList<>();
     private LayoutInflater layoutInflater;
 
-    public TimelineAdapter(Context context) {
+    public ScoreCardAdapter(Context context) {
         this.layoutInflater = LayoutInflater.from(context);
     }
 
-    public void setItems(List<TimelineItem> items) {
+    public void setItems(List<ScoreCardItem> items) {
         this.items.clear();
         this.items.addAll(items);
         notifyDataSetChanged();
@@ -34,7 +34,7 @@ public class TimelineAdapter extends BaseAdapter {
     }
 
     @Override
-    public TimelineItem getItem(int position) {
+    public ScoreCardItem getItem(int position) {
         return items.get(position);
     }
 
@@ -45,14 +45,14 @@ public class TimelineAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        TimelineItemView timelineItemView;
+        ScoreCardItemView scoreCardItemView;
         if (convertView == null) {
-            timelineItemView = (TimelineItemView) this.layoutInflater.inflate(R.layout.itemview_timeline, parent, false);
+            scoreCardItemView = (ScoreCardItemView) this.layoutInflater.inflate(R.layout.itemview_score_card, parent, false);
         } else {
-            timelineItemView = (TimelineItemView) convertView;
+            scoreCardItemView = (ScoreCardItemView) convertView;
         }
-        timelineItemView.bindView(getItem(position));
-        return timelineItemView;
+        scoreCardItemView.bindView(getItem(position));
+        return scoreCardItemView;
     }
 
 }

@@ -3,19 +3,7 @@ package com.shmup.hiscores.scores.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Stage implements Parcelable {
-
-    private long id;
-    private String name;
-
-    public long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
+public class Stage extends Option implements Parcelable {
 
     @Override
     public int describeContents() {
@@ -24,16 +12,15 @@ public class Stage implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeLong(this.id);
-        dest.writeString(this.name);
+        dest.writeLong(this.getId());
+        dest.writeString(this.getName());
     }
 
     public Stage() {
     }
 
-    protected Stage(Parcel in) {
-        this.id = in.readLong();
-        this.name = in.readString();
+    public Stage(Parcel in) {
+        super(in);
     }
 
     public static final Creator<Stage> CREATOR = new Creator<Stage>() {

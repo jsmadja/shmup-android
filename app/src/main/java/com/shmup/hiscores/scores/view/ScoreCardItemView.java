@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.shmup.hiscores.R;
-import com.shmup.hiscores.scores.model.TimelineItem;
+import com.shmup.hiscores.scores.model.ScoreCardItem;
 import com.squareup.picasso.Picasso;
 
 import static java.lang.String.format;
@@ -15,7 +15,7 @@ import static java.lang.String.format;
 /**
  * Mettre ButterKnife
  */
-public class TimelineItemView extends LinearLayout {
+public class ScoreCardItemView extends LinearLayout {
 
     private TextView playerTextView;
     private TextView scoreTextView;
@@ -31,11 +31,11 @@ public class TimelineItemView extends LinearLayout {
     private TextView rankTextView;
     private TextView stageTextView;
 
-    public TimelineItemView(Context context) {
+    public ScoreCardItemView(Context context) {
         this(context, null);
     }
 
-    public TimelineItemView(Context context, AttributeSet attrs) {
+    public ScoreCardItemView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -57,40 +57,52 @@ public class TimelineItemView extends LinearLayout {
         stageTextView = (TextView) findViewById(R.id.stageTextView);
     }
 
-    public void bindView(TimelineItem timelineItem) {
-        playerTextView.setText(timelineItem.getPlayer().getName());
-        scoreTextView.setText(format("%s %s", timelineItem.getValue(), getResources().getString(R.string.scoreSuffix)));
-        dateTextView.setText(timelineItem.getDate());
-        platformTextView.setText(timelineItem.getPlatform().getName());
-        gameTextView.setText(timelineItem.getGame().getTitle());
-        rankTextView.setText(timelineItem.getRank());
-        if (timelineItem.getDifficulty() == null) {
+    public void bindView(ScoreCardItem scoreCardItem) {
+        if(scoreCardItem.getPlayer() != null) {
+            playerTextView.setText(scoreCardItem.getPlayer().getName());
+        }
+        if(scoreCardItem.getValue() != null) {
+            scoreTextView.setText(format("%s %s", scoreCardItem.getValue(), getResources().getString(R.string.scoreSuffix)));
+        }
+        if(scoreCardItem.getDate() != null) {
+            dateTextView.setText(scoreCardItem.getDate());
+        }
+        if(scoreCardItem.getPlatform() != null) {
+            platformTextView.setText(scoreCardItem.getPlatform().getName());
+        }
+        if(scoreCardItem.getGame() != null) {
+            gameTextView.setText(scoreCardItem.getGame().getTitle());
+        }
+        if(scoreCardItem.getRank() != null) {
+            rankTextView.setText(scoreCardItem.getRank());
+        }
+        if (scoreCardItem.getDifficulty() == null) {
             difficultyTextView.setVisibility(GONE);
         } else {
             difficultyTextView.setVisibility(VISIBLE);
-            difficultyTextView.setText(timelineItem.getDifficulty().getName());
+            difficultyTextView.setText(scoreCardItem.getDifficulty().getName());
         }
-        if (timelineItem.getMode() == null) {
+        if (scoreCardItem.getMode() == null) {
             modeTextView.setVisibility(GONE);
         } else {
             modeTextView.setVisibility(VISIBLE);
-            modeTextView.setText(timelineItem.getMode().getName());
+            modeTextView.setText(scoreCardItem.getMode().getName());
         }
-        if (timelineItem.isOnecc()) {
+        if (scoreCardItem.isOnecc()) {
             oneccTextView.setVisibility(VISIBLE);
             oneccTextView.setText(R.string.oneCC);
         } else {
             oneccTextView.setVisibility(GONE);
         }
-        if (timelineItem.hasStage()) {
+        if (scoreCardItem.hasStage()) {
             stageTextView.setVisibility(VISIBLE);
-            stageTextView.setText(timelineItem.getStageName());
+            stageTextView.setText(scoreCardItem.getStageName());
         } else {
             stageTextView.setVisibility(GONE);
         }
-        photoTextView.setVisibility(timelineItem.hasPhoto() ? VISIBLE : GONE);
-        replayTextView.setVisibility(timelineItem.hasReplay() ? VISIBLE : GONE);
-        Picasso.with(getContext()).load(timelineItem.getCover()).into(coverImageView);
+        photoTextView.setVisibility(scoreCardItem.hasPhoto() ? VISIBLE : GONE);
+        replayTextView.setVisibility(scoreCardItem.hasReplay() ? VISIBLE : GONE);
+        Picasso.with(getContext()).load(scoreCardItem.getCover()).into(coverImageView);
     }
 
 }

@@ -1,11 +1,12 @@
-package com.shmup.hiscores;
+package com.shmup.hiscores.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.shmup.hiscores.ui.score.add.ChooseGameFragment;
+import com.shmup.hiscores.R;
+import com.shmup.hiscores.ui.score.add.SelectGameFragment;
 
 public class CreateScoreActivity extends AppCompatActivity {
 
@@ -17,7 +18,7 @@ public class CreateScoreActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.
                 beginTransaction().
-                replace(R.id.container_view, new ChooseGameFragment()).
+                replace(R.id.container_view, new SelectGameFragment()).
                 commit();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

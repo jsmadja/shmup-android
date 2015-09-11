@@ -5,9 +5,10 @@ import android.os.Parcelable;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.shmup.hiscores.BuildConfig;
+import com.shmup.hiscores.games.model.Game;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class TimelineItem implements Parcelable {
+public class ScoreCardItem implements Parcelable {
 
     private String value;
     private Player player;
@@ -126,10 +127,10 @@ public class TimelineItem implements Parcelable {
         dest.writeString(this.rank);
     }
 
-    public TimelineItem() {
+    public ScoreCardItem() {
     }
 
-    protected TimelineItem(Parcel in) {
+    protected ScoreCardItem(Parcel in) {
         this.value = in.readString();
         this.player = in.readParcelable(Player.class.getClassLoader());
         this.game = in.readParcelable(Game.class.getClassLoader());
@@ -145,13 +146,29 @@ public class TimelineItem implements Parcelable {
         this.rank = in.readString();
     }
 
-    public static final Creator<TimelineItem> CREATOR = new Creator<TimelineItem>() {
-        public TimelineItem createFromParcel(Parcel source) {
-            return new TimelineItem(source);
+    public static final Creator<ScoreCardItem> CREATOR = new Creator<ScoreCardItem>() {
+        public ScoreCardItem createFromParcel(Parcel source) {
+            return new ScoreCardItem(source);
         }
 
-        public TimelineItem[] newArray(int size) {
-            return new TimelineItem[size];
+        public ScoreCardItem[] newArray(int size) {
+            return new ScoreCardItem[size];
         }
     };
+
+    public void setPlatform(Platform platform) {
+        this.platform = platform;
+    }
+
+    public void setMode(Mode mode) {
+        this.mode = mode;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public void setShip(Ship ship) {
+        this.ship = ship;
+    }
 }
