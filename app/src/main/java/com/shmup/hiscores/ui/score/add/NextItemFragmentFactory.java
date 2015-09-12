@@ -28,7 +28,7 @@ public class NextItemFragmentFactory {
     }
 
     private static Fragment nextOfSelectStage(ScoreCardItem item) {
-        return ItemFragment.newInstance(item, EnterScoreFragment.class);
+        return ItemFragment.newInstance(item, TypeScoreFragment.class);
     }
 
     private static Fragment nextOfSelectShip(ScoreCardItem item) {

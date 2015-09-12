@@ -26,4 +26,7 @@
     <string name="title_select_ship">Select Ship</string>
     <string name="title_select_stage">Select Stage</string>
     <string name="stagePrefix">Stage</string>
+    <string name="scoreHint">123.456</string>
+    <string name="title_enter_score">Enter Score</string>
+    <string name="commentHint">Précisions éventuelles (autofire...)</string>
 </resources>

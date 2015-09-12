@@ -28,9 +28,17 @@ public class ScoreCardItem implements Parcelable {
     private String replay;
     private Platform platform;
     private String rank;
+    private Long score;
+    private String comment;
 
     public String getValue() {
-        return value;
+        if (value != null) {
+            return value;
+        }
+        if (score != null) {
+            return score.toString();
+        }
+        return null;
     }
 
     public Player getPlayer() {
@@ -109,58 +117,6 @@ public class ScoreCardItem implements Parcelable {
         this.game = game;
     }
 
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.value);
-        dest.writeParcelable(this.player, flags);
-        dest.writeParcelable(this.game, flags);
-        dest.writeParcelable(this.stage, flags);
-        dest.writeParcelable(this.ship, flags);
-        dest.writeParcelable(this.difficulty, flags);
-        dest.writeParcelable(this.mode, flags);
-        dest.writeString(this.date);
-        dest.writeByte(onecc ? (byte) 1 : (byte) 0);
-        dest.writeString(this.photo);
-        dest.writeString(this.replay);
-        dest.writeParcelable(this.platform, flags);
-        dest.writeString(this.rank);
-    }
-
-    public ScoreCardItem() {
-    }
-
-    protected ScoreCardItem(Parcel in) {
-        this.value = in.readString();
-        this.player = in.readParcelable(Player.class.getClassLoader());
-        this.game = in.readParcelable(Game.class.getClassLoader());
-        this.stage = in.readParcelable(Stage.class.getClassLoader());
-        this.ship = in.readParcelable(Ship.class.getClassLoader());
-        this.difficulty = in.readParcelable(Difficulty.class.getClassLoader());
-        this.mode = in.readParcelable(Mode.class.getClassLoader());
-        this.date = in.readString();
-        this.onecc = in.readByte() != 0;
-        this.photo = in.readString();
-        this.replay = in.readString();
-        this.platform = in.readParcelable(Platform.class.getClassLoader());
-        this.rank = in.readString();
-    }
-
-    public static final Creator<ScoreCardItem> CREATOR = new Creator<ScoreCardItem>() {
-        public ScoreCardItem createFromParcel(Parcel source) {
-            return new ScoreCardItem(source);
-        }
-
-        public ScoreCardItem[] newArray(int size) {
-            return new ScoreCardItem[size];
-        }
-    };
-
     public void setPlatform(Platform platform) {
         this.platform = platform;
     }
@@ -188,4 +144,67 @@ public class ScoreCardItem implements Parcelable {
     public void setDate(String date) {
         this.date = date;
     }
+
+    public void setScore(Long score) {
+        this.score = score;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.value);
+        dest.writeParcelable(this.player, 0);
+        dest.writeParcelable(this.game, 0);
+        dest.writeParcelable(this.stage, 0);
+        dest.writeParcelable(this.ship, 0);
+        dest.writeParcelable(this.difficulty, 0);
+        dest.writeParcelable(this.mode, 0);
+        dest.writeString(this.date);
+        dest.writeByte(onecc ? (byte) 1 : (byte) 0);
+        dest.writeString(this.photo);
+        dest.writeString(this.replay);
+        dest.writeParcelable(this.platform, 0);
+        dest.writeString(this.rank);
+        dest.writeValue(this.score);
+        dest.writeString(this.comment);
+    }
+
+    public ScoreCardItem() {
+    }
+
+    protected ScoreCardItem(Parcel in) {
+        this.value = in.readString();
+        this.player = in.readParcelable(Player.class.getClassLoader());
+        this.game = in.readParcelable(Game.class.getClassLoader());
+        this.stage = in.readParcelable(Stage.class.getClassLoader());
+        this.ship = in.readParcelable(Ship.class.getClassLoader());
+        this.difficulty = in.readParcelable(Difficulty.class.getClassLoader());
+        this.mode = in.readParcelable(Mode.class.getClassLoader());
+        this.date = in.readString();
+        this.onecc = in.readByte() != 0;
+        this.photo = in.readString();
+        this.replay = in.readString();
+        this.platform = in.readParcelable(Platform.class.getClassLoader());
+        this.rank = in.readString();
+        this.score = (Long) in.readValue(Long.class.getClassLoader());
+        this.comment = in.readString();
+    }
+
+    public static final Creator<ScoreCardItem> CREATOR = new Creator<ScoreCardItem>() {
+        public ScoreCardItem createFromParcel(Parcel source) {
+            return new ScoreCardItem(source);
+        }
+
+        public ScoreCardItem[] newArray(int size) {
+            return new ScoreCardItem[size];
+        }
+    };
 }
