@@ -8,12 +8,12 @@ import android.widget.TextView;
 import com.shmup.hiscores.R;
 import com.shmup.hiscores.games.model.Option;
 
-/**
- * Mettre ButterKnife
- */
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class OptionItemView extends LinearLayout {
 
-    private TextView optionTextView;
+    @Bind(R.id.optionTextView) TextView optionTextView;
 
     public OptionItemView(Context context) {
         this(context, null);
@@ -26,7 +26,7 @@ public class OptionItemView extends LinearLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        optionTextView = (TextView) findViewById(R.id.optionTextView);
+        ButterKnife.bind(this);
     }
 
     public void bindView(Option option) {

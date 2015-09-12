@@ -43,7 +43,8 @@ dependencies {
             'com.fasterxml.jackson.core:jackson-annotations:2.6.1',
             'com.fasterxml.jackson.core:jackson-core:2.6.1',
             'com.jakewharton.timber:timber:3.1.0',
-            'org.apmem.tools:layouts:1.9@aar'
+            'org.apmem.tools:layouts:1.9@aar',
+            'com.jakewharton:butterknife:7.0.1'
     )
 
 }

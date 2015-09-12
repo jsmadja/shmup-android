@@ -10,13 +10,13 @@ import com.shmup.hiscores.R;
 import com.shmup.hiscores.games.model.Game;
 import com.squareup.picasso.Picasso;
 
-/**
- * Mettre ButterKnife
- */
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class GameItemView extends LinearLayout {
 
-    private ImageView coverImageView;
-    private TextView gameTextView;
+    @Bind(R.id.coverImageView) ImageView coverImageView;
+    @Bind(R.id.gameTextView) TextView gameTextView;
 
     public GameItemView(Context context) {
         this(context, null);
@@ -29,8 +29,7 @@ public class GameItemView extends LinearLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        coverImageView = (ImageView) findViewById(R.id.coverImageView);
-        gameTextView = (TextView) findViewById(R.id.gameTextView);
+        ButterKnife.bind(this);
     }
 
     public void bindView(Game game) {

@@ -10,26 +10,26 @@ import com.shmup.hiscores.R;
 import com.shmup.hiscores.scores.model.ScoreCardItem;
 import com.squareup.picasso.Picasso;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 import static java.lang.String.format;
 
-/**
- * Mettre ButterKnife
- */
 public class ScoreCardItemView extends LinearLayout {
 
-    private TextView playerTextView;
-    private TextView scoreTextView;
-    private TextView dateTextView;
-    private ImageView coverImageView;
-    private TextView platformTextView;
-    private TextView difficultyTextView;
-    private TextView modeTextView;
-    private TextView oneccTextView;
-    private TextView gameTextView;
-    private TextView photoTextView;
-    private TextView replayTextView;
-    private TextView rankTextView;
-    private TextView stageTextView;
+    @Bind(R.id.playerTextView) TextView playerTextView;
+    @Bind(R.id.scoreTextView) TextView scoreTextView;
+    @Bind(R.id.dateTextView) TextView dateTextView;
+    @Bind(R.id.coverImageView) ImageView coverImageView;
+    @Bind(R.id.platformTextView) TextView platformTextView;
+    @Bind(R.id.difficultyTextView) TextView difficultyTextView;
+    @Bind(R.id.modeTextView) TextView modeTextView;
+    @Bind(R.id.oneccTextView) TextView oneccTextView;
+    @Bind(R.id.gameTextView) TextView gameTextView;
+    @Bind(R.id.photoTextView) TextView photoTextView;
+    @Bind(R.id.replayTextView) TextView replayTextView;
+    @Bind(R.id.rankTextView) TextView rankTextView;
+    @Bind(R.id.stageTextView) TextView stageTextView;
 
     public ScoreCardItemView(Context context) {
         this(context, null);
@@ -42,19 +42,7 @@ public class ScoreCardItemView extends LinearLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        playerTextView = (TextView) findViewById(R.id.playerTextView);
-        scoreTextView = (TextView) findViewById(R.id.scoreTextView);
-        dateTextView = (TextView) findViewById(R.id.dateTextView);
-        coverImageView = (ImageView) findViewById(R.id.coverImageView);
-        platformTextView = (TextView) findViewById(R.id.platformTextView);
-        difficultyTextView = (TextView) findViewById(R.id.difficultyTextView);
-        modeTextView = (TextView) findViewById(R.id.modeTextView);
-        oneccTextView = (TextView) findViewById(R.id.oneccTextView);
-        gameTextView = (TextView) findViewById(R.id.gameTextView);
-        photoTextView = (TextView) findViewById(R.id.photoTextView);
-        replayTextView = (TextView) findViewById(R.id.replayTextView);
-        rankTextView = (TextView) findViewById(R.id.rankTextView);
-        stageTextView = (TextView) findViewById(R.id.stageTextView);
+        ButterKnife.bind(this);
     }
 
     public void bindView(ScoreCardItem scoreCardItem) {
