@@ -11,26 +11,25 @@ import com.shmup.hiscores.games.model.Option;
 /**
  * Mettre ButterKnife
  */
-public class StageItemView extends LinearLayout implements BindableItemView {
+public class OptionItemView extends LinearLayout {
 
-    private TextView stageTextView;
+    private TextView optionTextView;
 
-    public StageItemView(Context context) {
+    public OptionItemView(Context context) {
         this(context, null);
     }
 
-    public StageItemView(Context context, AttributeSet attrs) {
+    public OptionItemView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        stageTextView = (TextView) findViewById(R.id.stageTextView);
+        optionTextView = (TextView) findViewById(R.id.optionTextView);
     }
 
-    @Override
     public void bindView(Option option) {
-        stageTextView.setText(option.getName());
+        optionTextView.setText(option.getName());
     }
 }

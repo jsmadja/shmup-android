@@ -3,6 +3,11 @@ package com.shmup.hiscores.ui.score.add;
 import android.support.v4.app.Fragment;
 
 import com.shmup.hiscores.scores.model.ScoreCardItem;
+import com.shmup.hiscores.ui.score.add.options.SelectDifficultyFragment;
+import com.shmup.hiscores.ui.score.add.options.SelectModeFragment;
+import com.shmup.hiscores.ui.score.add.options.SelectPlatformFragment;
+import com.shmup.hiscores.ui.score.add.options.SelectShipFragment;
+import com.shmup.hiscores.ui.score.add.options.SelectStageFragment;
 
 public class NextItemFragmentFactory {
 

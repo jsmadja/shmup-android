@@ -16,6 +16,7 @@ import com.shmup.hiscores.games.adapter.GameAdapter;
 import com.shmup.hiscores.games.model.Game;
 import com.shmup.hiscores.listener.RecyclerItemClickListener;
 import com.shmup.hiscores.scores.model.ScoreCardItem;
+import com.shmup.hiscores.ui.score.add.options.SelectPlatformFragment;
 
 import java.util.List;
 

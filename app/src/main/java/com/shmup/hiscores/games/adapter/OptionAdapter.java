@@ -6,21 +6,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.shmup.hiscores.R;
 import com.shmup.hiscores.games.model.Option;
-import com.shmup.hiscores.games.view.BindableItemView;
+import com.shmup.hiscores.games.view.OptionItemView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class OptionAdapter<T extends Option, V extends BindableItemView> extends BaseAdapter {
+public class OptionAdapter<T extends Option> extends BaseAdapter {
 
     private List<T> options = new ArrayList<>();
     private LayoutInflater layoutInflater;
     private int layout;
 
-    public OptionAdapter(Context context, int layout) {
+    public OptionAdapter(Context context) {
         this.layoutInflater = LayoutInflater.from(context);
-        this.layout = layout;
+        this.layout = R.layout.itemview_option;
     }
 
     public void setOptions(List<T> options) {
@@ -46,14 +47,14 @@ public class OptionAdapter<T extends Option, V extends BindableItemView> extends
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        V itemView;
+        OptionItemView itemView;
         if (convertView == null) {
-            itemView = (V) this.layoutInflater.inflate(layout, parent, false);
+            itemView = (OptionItemView) this.layoutInflater.inflate(layout, parent, false);
         } else {
-            itemView = (V) convertView;
+            itemView = (OptionItemView) convertView;
         }
         itemView.bindView(getItem(position));
-        return (View) itemView;
+        return itemView;
     }
 
 }
