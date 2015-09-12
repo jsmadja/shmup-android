@@ -58,22 +58,25 @@ public class ScoreCardItemView extends LinearLayout {
     }
 
     public void bindView(ScoreCardItem scoreCardItem) {
-        if(scoreCardItem.getPlayer() != null) {
+        if (scoreCardItem.getPlayer() != null) {
             playerTextView.setText(scoreCardItem.getPlayer().getName());
         }
-        if(scoreCardItem.getValue() != null) {
+        if (scoreCardItem.getValue() != null) {
             scoreTextView.setText(format("%s %s", scoreCardItem.getValue(), getResources().getString(R.string.scoreSuffix)));
         }
-        if(scoreCardItem.getDate() != null) {
+        if (scoreCardItem.getDate() != null) {
             dateTextView.setText(scoreCardItem.getDate());
         }
-        if(scoreCardItem.getPlatform() != null) {
+        if (scoreCardItem.getPlatform() == null) {
+            platformTextView.setVisibility(GONE);
+        } else {
             platformTextView.setText(scoreCardItem.getPlatform().getName());
+            platformTextView.setVisibility(VISIBLE);
         }
-        if(scoreCardItem.getGame() != null) {
+        if (scoreCardItem.getGame() != null) {
             gameTextView.setText(scoreCardItem.getGame().getTitle());
         }
-        if(scoreCardItem.getRank() != null) {
+        if (scoreCardItem.getRank() != null) {
             rankTextView.setText(scoreCardItem.getRank());
         }
         if (scoreCardItem.getDifficulty() == null) {
@@ -96,7 +99,7 @@ public class ScoreCardItemView extends LinearLayout {
         }
         if (scoreCardItem.hasStage()) {
             stageTextView.setVisibility(VISIBLE);
-            stageTextView.setText(scoreCardItem.getStageName());
+            stageTextView.setText(format("%s %s", getResources().getString(R.string.stagePrefix), scoreCardItem.getStageName()));
         } else {
             stageTextView.setVisibility(GONE);
         }

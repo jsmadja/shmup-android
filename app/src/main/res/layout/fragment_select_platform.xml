@@ -4,11 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/preview"
+        layout="@layout/itemview_score_card" />
+
     <ListView
         android:id="@+id/platformsListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </ListView>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

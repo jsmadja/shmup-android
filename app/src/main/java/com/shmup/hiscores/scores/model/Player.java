@@ -28,6 +28,10 @@ public class Player implements Parcelable {
     public Player() {
     }
 
+    public Player(String name) {
+        this.name = name;
+    }
+
     protected Player(Parcel in) {
         this.name = in.readString();
     }

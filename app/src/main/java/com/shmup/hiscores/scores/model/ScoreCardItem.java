@@ -180,4 +180,12 @@ public class ScoreCardItem implements Parcelable {
     public void setStage(Stage stage) {
         this.stage = stage;
     }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 }

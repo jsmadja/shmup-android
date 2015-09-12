@@ -25,4 +25,5 @@
     <string name="title_select_platform">Select Platform</string>
     <string name="title_select_ship">Select Ship</string>
     <string name="title_select_stage">Select Stage</string>
+    <string name="stagePrefix">Stage</string>
 </resources>

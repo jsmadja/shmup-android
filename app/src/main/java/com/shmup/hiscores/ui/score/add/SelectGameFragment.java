@@ -15,6 +15,7 @@ import com.shmup.hiscores.activity.CreateScoreActivity;
 import com.shmup.hiscores.games.adapter.GameAdapter;
 import com.shmup.hiscores.games.model.Game;
 import com.shmup.hiscores.listener.RecyclerItemClickListener;
+import com.shmup.hiscores.scores.model.Player;
 import com.shmup.hiscores.scores.model.ScoreCardItem;
 import com.shmup.hiscores.ui.score.add.options.SelectPlatformFragment;
 
@@ -71,6 +72,8 @@ public class SelectGameFragment extends Fragment {
         return new RecyclerItemClickListener(view.getContext(), new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
+                item.setDate("il y a un instant");
+                item.setPlayer(new Player("Yace"));
                 item.setGame(adapter.getGameAt(position));
                 goToNextFragment();
             }
