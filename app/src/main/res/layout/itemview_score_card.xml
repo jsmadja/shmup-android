@@ -93,7 +93,7 @@
 
         <TextView
             android:id="@+id/modeTextView"
-            style="@style/Button"
+            style="@style/OptionLabel"
             android:layout_marginBottom="@dimen/buttonMargin"
             android:layout_marginEnd="@dimen/buttonMargin"
             android:layout_marginRight="@dimen/buttonMargin"
@@ -102,7 +102,7 @@
 
         <TextView
             android:id="@+id/difficultyTextView"
-            style="@style/Button"
+            style="@style/OptionLabel"
             android:layout_marginEnd="@dimen/buttonMargin"
             android:layout_marginRight="@dimen/buttonMargin"
             android:background="@color/difficulty"
@@ -110,7 +110,7 @@
 
         <TextView
             android:id="@+id/platformTextView"
-            style="@style/Button"
+            style="@style/OptionLabel"
             android:layout_marginEnd="@dimen/buttonMargin"
             android:layout_marginRight="@dimen/buttonMargin"
             android:background="@color/platform"
@@ -118,7 +118,7 @@
 
         <TextView
             android:id="@+id/photoTextView"
-            style="@style/Button"
+            style="@style/OptionLabel"
             android:layout_marginEnd="@dimen/buttonMargin"
             android:layout_marginRight="@dimen/buttonMargin"
             android:background="@color/photo"
@@ -126,7 +126,7 @@
 
         <TextView
             android:id="@+id/replayTextView"
-            style="@style/Button"
+            style="@style/OptionLabel"
             android:layout_marginEnd="@dimen/buttonMargin"
             android:layout_marginRight="@dimen/buttonMargin"
             android:background="@color/replay"
@@ -134,7 +134,7 @@
 
         <TextView
             android:id="@+id/oneccTextView"
-            style="@style/Button"
+            style="@style/OptionLabel"
             android:background="@color/oneCC"
             tools:text="@string/oneCC" />
 

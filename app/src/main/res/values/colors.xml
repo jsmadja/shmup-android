@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="platform">#27ae60</color>
-    <color name="photo">#3498db</color>
-    <color name="replay">#3498db</color>
-    <color name="oneCC">#c0392b</color>
-    <color name="difficulty">#f1c40f</color>
-    <color name="mode">#7f8c8d</color>
+    <color name="platform">#5cb85c</color>
+    <color name="photo">#428bca</color>
+    <color name="replay">#428bca</color>
+    <color name="oneCC">#d9534f</color>
+    <color name="difficulty">#f0ad4e</color>
+    <color name="mode">#999999</color>
 </resources>
