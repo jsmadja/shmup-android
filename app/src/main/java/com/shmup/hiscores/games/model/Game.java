@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -18,6 +19,7 @@ public class Game implements Parcelable {
     private List<Difficulty> difficulties;
     private List<Ship> ships;
     private List<Stage> stages;
+    private List<Ranking> rankings;
 
     public Game() {
     }
@@ -71,6 +73,15 @@ public class Game implements Parcelable {
         return stages;
     }
 
+    public boolean hasStages() {
+        return stages != null && !stages.isEmpty();
+    }
+
+    public List<Ranking> getRankings() {
+        return rankings;
+    }
+
+
     @Override
     public int describeContents() {
         return 0;
@@ -86,6 +97,7 @@ public class Game implements Parcelable {
         dest.writeTypedList(difficulties);
         dest.writeTypedList(ships);
         dest.writeTypedList(stages);
+        dest.writeList(this.rankings);
     }
 
     protected Game(Parcel in) {
@@ -97,6 +109,8 @@ public class Game implements Parcelable {
         this.difficulties = in.createTypedArrayList(Difficulty.CREATOR);
         this.ships = in.createTypedArrayList(Ship.CREATOR);
         this.stages = in.createTypedArrayList(Stage.CREATOR);
+        this.rankings = new ArrayList<Ranking>();
+        in.readList(this.rankings, List.class.getClassLoader());
     }
 
     public static final Creator<Game> CREATOR = new Creator<Game>() {
@@ -108,9 +122,5 @@ public class Game implements Parcelable {
             return new Game[size];
         }
     };
-
-    public boolean hasStages() {
-        return stages != null && !stages.isEmpty();
-    }
 }
 

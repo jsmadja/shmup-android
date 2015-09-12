@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.shmup.hiscores.games.view.RankingScoreItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="1dp"
+    android:background="@android:color/white"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/rankTextView"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        tools:text="@string/rankPlaceHolder" />
+
+    <TextView
+        android:id="@+id/playerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        tools:text="@string/playerPlaceHolder" />
+
+    <TextView
+        android:id="@+id/scoreTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:paddingLeft="10dp"
+        tools:text="@string/scorePlaceHolder" />
+
+    <TextView
+        android:id="@+id/stageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="end"
+        android:paddingLeft="10dp"
+        tools:text="@string/stagePlaceHolder" />
+
+    <TextView
+        android:id="@+id/oneccTextView"
+        style="@style/OptionLabel"
+        android:background="@color/oneCC"
+        tools:text="@string/oneCC" />
+
+</com.shmup.hiscores.games.view.RankingScoreItemView>

@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.shmup.hiscores.BuildConfig;
 import com.shmup.hiscores.games.model.Difficulty;
 import com.shmup.hiscores.games.model.Game;
@@ -23,7 +24,10 @@ public class ScoreCardItem implements Parcelable {
     private Difficulty difficulty;
     private Mode mode;
     private String date;
+
+    @JsonProperty("1cc")
     private boolean onecc;
+
     private String photo;
     private String replay;
     private Platform platform;

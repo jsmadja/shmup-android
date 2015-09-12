@@ -20,6 +20,8 @@
         </activity>
 
         <activity android:name=".activity.CreateScoreActivity"></activity>
+        <activity android:name=".activity.ScoreActivity"></activity>
+
 
     </application>
 
