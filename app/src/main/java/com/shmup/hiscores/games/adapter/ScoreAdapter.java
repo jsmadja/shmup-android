@@ -44,4 +44,13 @@ public class ScoreAdapter extends FragmentStatePagerAdapter {
         }
         return RankingFragment.newInstance(getRankings().get(position - 1));
     }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        if (position == 0) {
+            return score.getPlayer().getName();
+        }
+        Ranking ranking = getRankings().get(position - 1);
+        return ranking.getName();
+    }
 }

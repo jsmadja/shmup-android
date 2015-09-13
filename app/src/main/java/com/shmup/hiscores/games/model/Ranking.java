@@ -56,4 +56,15 @@ public class Ranking implements Parcelable {
             return new Ranking[size];
         }
     };
+
+    public String getName() {
+        String name = "Ranking";
+        if (mode != null) {
+            name += " " + mode.getName();
+        }
+        if (difficulty != null) {
+            name += " " + difficulty.getName();
+        }
+        return name;
+    }
 }
